@@ -18,7 +18,16 @@ const HALF_LIFE_PERIOD = 5730;
  *
  */
 function dateSample(sampleActivity) {
-  123
+  if (typeof sampleActivity !== 'string') return false;
+  if (!Number(sampleActivity)) return false;
+  if(parseFloat(sampleActivity) >= 15 ) return false; 
+  if(parseFloat(sampleActivity) <= 0) return false;
+  let MODERN_ACTIVITY = 15;
+  let HALF_LIFE_PERIOD = 5730;
+  k = -0.693 / HALF_LIFE_PERIOD;
+  result = Math.ceil((Math.log(parseFloat(sampleActivity)/ MODERN_ACTIVITY)) / k);
+  return result;
+
 }
 
 module.exports = {
