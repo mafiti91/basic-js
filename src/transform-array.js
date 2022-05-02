@@ -15,7 +15,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function transform(arr) {
   if (Array.isArray(arr) !== true) throw new Error("'arr' parameter must be an instance of the Array!");
-  FinArr = []
+  let FinArr = [];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === "--discard-next" && arr[i + 1] !== undefined) continue;
     if (arr[i] === "--discard-prev" && arr[i - 1] !== undefined) FinArr.pop();
